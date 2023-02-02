@@ -4,6 +4,11 @@ import DraggableItem from './components/DraggableItem'
 import styles from './styles'
 import useDraggableGridViewHooks from './useDraggableGridViewHooks'
 
+let isScrolling = false;
+const setIsScrolling = (value: boolean) => {
+  isScrolling = value;
+}
+
 const DraggableGridView = <T,>(
   props: ScrollViewProps & {
     data: Array<T>
@@ -49,8 +54,6 @@ const DraggableGridView = <T,>(
     notIncludeRemoveIn,
     closeIconStyle
   } = props
-
-  const [isScrolling, setIsScrolling] = React.useState(false);
 
   const {
     isLock,
